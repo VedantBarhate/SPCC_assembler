@@ -1,6 +1,7 @@
 from assembler.lexer import tokenize_line
 from assembler.parser import parse_tokens
 from assembler.pass1 import run_pass1
+from assembler.pass2 import run_pass2
 
 parsed_statements = []
 
@@ -23,5 +24,13 @@ for line in lines:
 # PASS 1
 symbol_table = run_pass1(parsed_statements)
 
-# DISPLAY SYMBOL TABLE
 symbol_table.display()
+
+# PASS 2
+machine_code = run_pass2(parsed_statements, symbol_table)
+
+print("\nMACHINE CODE")
+print("-" * 30)
+
+for instruction in machine_code:
+    print(instruction)
