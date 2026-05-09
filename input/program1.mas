@@ -1,0 +1,8 @@
+VAR X 10;
+VAR Y 20;
+
+LOAD(X);
+ADD(Y);
+MULT(Y);
+DISPLAY();
+STORE(X);
